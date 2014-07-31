@@ -50,7 +50,7 @@ namespace BowlingGameTest
         [TestMethod]
         public void OneStrikeTest()
         {
-            game.Roll(10);
+            RollStrike();
             game.Roll(2);
             game.Roll(2);
             RollMany(16, 0);
@@ -70,6 +70,11 @@ namespace BowlingGameTest
         {
             game.Roll(4);
             game.Roll(6);
+        }
+
+        private void RollStrike()
+        {
+            game.Roll(10);
         }
 
     }
