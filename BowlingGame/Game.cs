@@ -19,7 +19,8 @@ namespace BowlingGame
 
         public void Roll(int pins)
         {
-            rolls[currentRoll++] = pins;
+            rolls[currentRoll] = pins;
+            currentRoll++;
         }
 
         public int Score()
@@ -51,7 +52,7 @@ namespace BowlingGame
         private bool IsSpare(int roll)
         {
             bool isSpare = false;
-            if (rolls[roll] + rolls[roll + 1] == 10)
+            if ((rolls[roll] + rolls[roll + 1]) == 10)
             {
                 isSpare = true;
             }

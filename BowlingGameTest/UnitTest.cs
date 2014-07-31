@@ -29,10 +29,7 @@ namespace BowlingGameTest
         [TestMethod]
         public void AllOneTest()
         {
-            for (int i = 0; i < 20; i++)
-            {
-                game.Roll(1);
-            }
+            RollMany(20, 1);
 
             Assert.AreEqual(20, game.Score());
         }
@@ -84,6 +81,29 @@ namespace BowlingGameTest
             Assert.AreEqual(133, game.Score());
         }
 
+        [TestMethod]
+        public void LastFrameSpareTest()
+        {
+            RollMany(18, 0);
+            
+            game.Roll(2);
+            game.Roll(8);
+            game.Roll(1);
+
+            Assert.AreEqual(11, game.Score());
+        }
+
+        [TestMethod]
+        public void LastStrikeTest()
+        {
+            RollMany(18, 0);
+
+            RollSpare();
+            RollStrike();
+
+            Assert.AreEqual(20, game.Score());
+        }
+
         public void PerfectGameTest()
         {
             RollMany(12, 10);
@@ -93,9 +113,9 @@ namespace BowlingGameTest
 
         private void RollMany(int rolls, int pins)
         {
-            for (int i = 0; i < pins; i++)
+            for (int i = 0; i < rolls; i++)
             {
-                game.Roll(rolls);
+                game.Roll(pins);
             }
         }
 
