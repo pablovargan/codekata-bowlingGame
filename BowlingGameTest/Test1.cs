@@ -37,5 +37,13 @@ namespace BowlingGameTest
             Assert.AreEqual(20, game.Score());
         }
 
+        private void RollMany(int rolls, int pins)
+        {
+            for (int i = 0; i < pins; i++)
+            {
+                game.Roll(rolls);
+            }
+        }
+
     }
 }
