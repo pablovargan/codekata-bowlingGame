@@ -40,7 +40,12 @@ namespace BowlingGameTest
         [TestMethod]
         public void OneSpareTest()
         {
+            game.Roll(4);
+            game.Roll(6);
+            game.Roll(3);
+            RollMany(17, 0);
 
+            Assert.AreEqual(16, game.Score());
         }
 
         private void RollMany(int rolls, int pins)
