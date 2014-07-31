@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace BowlingGameTest
 {
     [TestClass]
-    public class Test
+    public class UnitTest
     {
         private Game game;
 
@@ -35,6 +35,12 @@ namespace BowlingGameTest
             }
 
             Assert.AreEqual(20, game.Score());
+        }
+
+        [TestMethod]
+        public void OneSpareTest()
+        {
+
         }
 
         private void RollMany(int rolls, int pins)
