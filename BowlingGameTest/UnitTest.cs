@@ -60,7 +60,9 @@ namespace BowlingGameTest
 
         public void PerfectGameTest()
         {
+            RollMany(12, 10);
 
+            Assert.AreEqual(300, game.Score());
         }
 
         private void RollMany(int rolls, int pins)
