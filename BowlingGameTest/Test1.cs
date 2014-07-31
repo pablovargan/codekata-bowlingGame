@@ -5,12 +5,25 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace BowlingGameTest
 {
     [TestClass]
-    public class Test1
+    public class Test
     {
-        [TestMethod]
-        public void TestMethod1()
+        private Game game;
+
+        [TestInitialize]
+        public void Init()
         {
-            Game g = new Game();
+            game = new Game();
+        }
+
+        [TestMethod]
+        public void GutterGameTest()
+        {
+            for (int i = 0; i < 20; i++)
+            {
+                game.Roll(0);
+            }
+
+            Assert.AreEqual(0, game.Score());
         }
 
     }
