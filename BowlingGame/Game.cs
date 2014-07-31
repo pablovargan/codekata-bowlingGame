@@ -10,9 +10,9 @@ namespace BowlingGame
     {
         private int score;
 
-        public void Roll(int p)
+        public void Roll(int pins)
         {
-            
+            score += pins;
         }
 
         public int Score()
