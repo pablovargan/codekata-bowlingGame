@@ -55,7 +55,7 @@ namespace BowlingGameTest
             game.Roll(2);
             RollMany(16, 0);
 
-            Assert.AreEqual(24, game.Score());
+            Assert.AreEqual(18, game.Score());
         }
 
         private void RollMany(int rolls, int pins)

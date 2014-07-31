@@ -28,14 +28,19 @@ namespace BowlingGame
             int roll = 0;
             for (int frame = 0; frame < 10; frame++)
             {
-                if (IsSpare(roll))
+                if (IsStrike(roll))
                 {
-                    score += 10 + rolls[roll + 2];
+                    score += 10 + StrikeBonus(roll);
+                    roll++;
+                }
+                else if (IsSpare(roll))
+                {
+                    score += 10 + SpareBonus(roll);
                     roll += 2; 
                 }
                 else
                 {
-                    score += rolls[roll] + rolls[roll + 1];
+                    score += SumOfPinInFrame(roll);
                     roll += 2;
                 }
             }
@@ -47,9 +52,36 @@ namespace BowlingGame
         {
             bool isSpare = false;
             if (rolls[roll] + rolls[roll + 1] == 10)
+            {
                 isSpare = true;
+            }
 
             return isSpare;
+        }
+
+        private bool IsStrike(int roll)
+        {
+            bool isStrike = false;
+            if (rolls[roll] == 10)
+            {
+                isStrike = true;
+            }
+
+            return isStrike;
+        }
+
+        private int StrikeBonus(int roll)
+        {
+            return rolls[roll + 1] + rolls[roll + 2];
+        }
+        private int SpareBonus(int roll)
+        {
+            return rolls[roll + 2];
+        }
+
+        private int SumOfPinInFrame(int roll)
+        {
+            return rolls[roll] + rolls[roll + 1];
         }
     }
 }
