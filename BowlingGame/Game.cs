@@ -28,7 +28,7 @@ namespace BowlingGame
             int roll = 0;
             for (int frame = 0; frame < 10; frame++)
             {
-                if (rolls[roll] + rolls[roll + 1] == 10)
+                if (IsSpare(roll))
                 {
                     score += 10 + rolls[roll + 2];
                     roll += 2; 
@@ -41,6 +41,15 @@ namespace BowlingGame
             }
 
             return score; 
+        }
+
+        private bool IsSpare(int roll)
+        {
+            bool isSpare = false;
+            if (rolls[roll] + rolls[roll + 1] == 10)
+                isSpare = true;
+
+            return isSpare;
         }
     }
 }

@@ -40,8 +40,7 @@ namespace BowlingGameTest
         [TestMethod]
         public void OneSpareTest()
         {
-            game.Roll(4);
-            game.Roll(6);
+            RollSpare();
             game.Roll(3);
             RollMany(17, 0);
 
@@ -54,6 +53,12 @@ namespace BowlingGameTest
             {
                 game.Roll(rolls);
             }
+        }
+
+        private void RollSpare()
+        {
+            game.Roll(4);
+            game.Roll(6);
         }
 
     }
