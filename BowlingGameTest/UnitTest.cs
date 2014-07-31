@@ -58,6 +58,11 @@ namespace BowlingGameTest
             Assert.AreEqual(18, game.Score());
         }
 
+        public void PerfectGameTest()
+        {
+
+        }
+
         private void RollMany(int rolls, int pins)
         {
             for (int i = 0; i < pins; i++)
