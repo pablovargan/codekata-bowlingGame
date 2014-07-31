@@ -58,6 +58,32 @@ namespace BowlingGameTest
             Assert.AreEqual(18, game.Score());
         }
 
+        [TestMethod]
+        public void RealGameTest()
+        {
+            game.Roll(1);
+            game.Roll(4);
+            game.Roll(4);
+            game.Roll(5);
+            game.Roll(6);
+            game.Roll(4);
+            game.Roll(5);
+            game.Roll(5);
+            RollStrike();
+            game.Roll(0);
+            game.Roll(1);
+            game.Roll(7);
+            game.Roll(3);
+            game.Roll(6);
+            game.Roll(4);
+            RollStrike();
+            game.Roll(2);
+            game.Roll(8);
+            game.Roll(6);
+
+            Assert.AreEqual(133, game.Score());
+        }
+
         public void PerfectGameTest()
         {
             RollMany(12, 10);
